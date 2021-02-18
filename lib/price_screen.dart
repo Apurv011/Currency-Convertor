@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'coin_data.dart';
 import 'networking.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'constants.dart';
 
 class PriceScreen extends StatefulWidget {
   @override
   _PriceScreenState createState() => _PriceScreenState();
 }
 
-final fixedUrl = '${Constants.myUrl}';
+final fixedUrl = 'ttps://free.currconv.com/api/v7/convert';
 
 class _PriceScreenState extends State<PriceScreen> {
   String selectedCurrency1 = 'USD';
