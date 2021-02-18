@@ -8,7 +8,7 @@ class PriceScreen extends StatefulWidget {
   _PriceScreenState createState() => _PriceScreenState();
 }
 
-final fixedUrl = 'ttps://free.currconv.com/api/v7/convert';
+final fixedUrl = 'https://free.currconv.com/api/v7/convert';
 
 class _PriceScreenState extends State<PriceScreen> {
   String selectedCurrency1 = 'USD';
@@ -103,6 +103,7 @@ class _PriceScreenState extends State<PriceScreen> {
                       onChanged: (value) {
                         setState(() {
                           selectedCurrency1 = value;
+                          conversion = "";
                         });
                       },
                     ),
@@ -116,13 +117,24 @@ class _PriceScreenState extends State<PriceScreen> {
                       onChanged: (value) {
                         setState(() {
                           selectedCurrency2 = value;
-                          showSpinner = true;
-                          updateUI();
+                          conversion = "  ";
                         });
                       },
                     ),
                     SizedBox(
                       width: 20.0,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          showSpinner = true;
+                          updateUI();
+                        });
+                      },
+                      child: Text(
+                        "Convert",
+                        style: TextStyle(),
+                      ),
                     ),
                   ],
                 ),
